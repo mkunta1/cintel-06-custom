@@ -1,3 +1,4 @@
+
 from faicons import icon_svg
 import faicons as fa
 import plotly.express as px
@@ -25,16 +26,15 @@ ICONS = {
     
 }
 # Corrected file path
-infile = Path("C:/NWmissouri/continousintelligence/customproj/tips.csv")
+#infile = Path("C:/NWmissouri/continousintelligence/customproj/tips.csv")
 
 # Read the CSV file
-tips = pd.read_csv(infile)
+#tips = pd.read_csv(infile)
 
 
-#tips = px.data.tips()  # Load tipping dataset
+tips = px.data.tips()  # Load tipping dataset
 
-# Page title -------------------------------------------------------------------------------------
-ui.page_opts(title="Tipping Analysis Dashboard", fillable=True)
+ui.HTML("<h1 style='font-size: 3em; color: darkblue; font-weight: bold; text-align: center;background-color: yellow;'>Tips Analysis Dashboard</h1>")
 
 # Sidebar with Inputs ----------------------------------------------------------------------------
 with ui.sidebar(open="open"):
@@ -180,3 +180,5 @@ def reactive_tips_combined():
     deque_snapshot = reactive_value_wrapper.get()
     df = pd.DataFrame(deque_snapshot)
     return deque_snapshot, df, new_entry
+
+
